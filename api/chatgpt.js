@@ -24,8 +24,8 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
-          messages: systemMessage,
-          ...messages
+          messages: [systemMessage,
+          ...messages],
         }),
       });
   
