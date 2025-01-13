@@ -5,7 +5,9 @@ export default async function handler(req, res) {
     }
   
     const apiKey = process.env.OPENAI_API_KEY; // Use a secure server-side variable
-  
+    const systemMessage = { // Add beginning of prompt here
+        "role": "system", "content": "Generate 5 medium multiple choice questions about"
+      }
     const { messages } = req.body;
   
     if (!apiKey || !messages) {
@@ -22,7 +24,8 @@ export default async function handler(req, res) {
         },
         body: JSON.stringify({
           model: "gpt-3.5-turbo",
-          messages: messages,
+          messages: systemMessage,
+          ...messages
         }),
       });
   
