@@ -3,7 +3,7 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-const API_KEY = import.meta.env.OPENAI_API_KEY
+const API_KEY = import.meta.env.VITE_OPENAI_API_KEY
 
 const systemMessage = { // Add beginning of prompt here
   "role": "system", "content": "Generate 5 medium multiple choice questions about"
