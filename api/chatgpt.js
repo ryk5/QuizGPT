@@ -4,7 +4,7 @@ export default async function handler(req, res) {
       return;
     }
   
-    const apiKey = process.env.OPENAI_API_KEY; // Use a secure server-side variable
+    const apiKey = process.env.DEEPSEEK_API_KEY; // Use a secure server-side variable
     const systemMessage = { // Add beginning of prompt here
         "role": "system", "content": "Generate 5 medium multiple choice questions about"
       }
@@ -16,14 +16,14 @@ export default async function handler(req, res) {
     }
   
     try {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      const response = await fetch("https://api.deepseek.com/chat/completions", {
         method: "POST",
         headers: {
           "Authorization": `Bearer ${apiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "gpt-3.5-turbo",
+          model: "deepseek-chat",
           messages: [systemMessage,
           ...messages],
         }),
